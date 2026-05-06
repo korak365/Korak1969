@@ -1,0 +1,17 @@
+{
+  "actorSpecification": 1,
+  "name": "counterfeit-detector",
+  "title": "Counterfeit Detector",
+  "description": "Detects listings on marketplaces using provided brand images via perceptual hash matching (authorized or public use only).",
+  "version": "0.0.1",
+  "meta": {
+    "templateId": "ai-generated-actor",
+    "generatedBy": "GitHub Copilot (copilot)"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
+}

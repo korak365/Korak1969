@@ -1,0 +1,43 @@
+{
+  "title": "Input schema for Counterfeit Detector",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "editor": "requestListSources",
+      "prefill": [{ "url": "https://marketplace.example.com/search?q=brand" }]
+    },
+    "mode": {
+      "title": "Crawl mode",
+      "type": "string",
+      "default": "http",
+      "enum": ["http", "browser"],
+      "description": "Use 'http' (Cheerio) or 'browser' (Playwright for JS-heavy pages)."
+    },
+    "brandImageKeys": {
+      "title": "Brand image KVS keys",
+      "type": "array",
+      "description": "KVS keys with brand images (png/jpg) or JSON with {\"name\":\"...\",\"hash\":\"...\"}.",
+      "default": ["brands/brand1.png"]
+    },
+    "similarityHammingThreshold": {
+      "title": "Hamming distance threshold",
+      "type": "integer",
+      "default": 12,
+      "description": "Max hamming distance for a match (typical for pHash 64-bit: 10-14)."
+    },
+    "saveSuspectImages": { "title": "Save suspect images to KVS", "type": "boolean", "default": true },
+    "maxRequestsPerCrawl": { "title": "Max requests per crawl", "type": "integer", "default": 500 },
+    "concurrency": { "title": "Max concurrency (browser instances)", "type": "integer", "default": 3 },
+    "enqueueGlobs": {
+      "title": "Enqueue link globs",
+      "type": "array",
+      "default": ["**/product/**","**/listing/**","**/search**"]
+    },
+    "storagePrefix": { "title": "KVS storage prefix", "type": "string", "default": "counterfeit-detector" },
+    "userAgent": { "title": "User agent", "type": "string", "default": "" }
+  },
+  "required": ["startUrls", "brandImageKeys"]
+}

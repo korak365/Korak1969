@@ -1,0 +1,32 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "listingUrl": { "type": "string" },
+    "imageUrl": { "type": "string" },
+    "brandName": { "type": "string" },
+    "brandKey": { "type": "string" },
+    "brandHash": { "type": "string" },
+    "imageHash": { "type": "string" },
+    "hammingDistance": { "type": "integer" },
+    "metadata": { "type": "object" },
+    "suspectImageKey": { "type": "string" },
+    "timestamp": { "type": "string" }
+  },
+  "views": {
+    "overview": {
+      "title": "Suspects Overview",
+      "transformation": { "fields": ["listingUrl","brandName","imageUrl","hammingDistance","suspectImageKey","timestamp"] },
+      "display": {
+        "component": "table",
+        "properties": {
+          "listingUrl": { "label": "Listing", "format": "link" },
+          "brandName": { "label": "Brand", "format": "text" },
+          "imageUrl": { "label": "Image", "format": "link" },
+          "hammingDistance": { "label": "Hamming", "format": "number" },
+          "suspectImageKey": { "label": "Saved Image", "format": "text" },
+          "timestamp": { "label": "Detected", "format": "text" }
+        }
+      }
+    }
+  }
+}

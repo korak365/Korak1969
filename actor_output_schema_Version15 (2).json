@@ -1,0 +1,16 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Output of Counterfeit Detector",
+  "properties": {
+    "overview": {
+      "type": "string",
+      "title": "Suspected listings",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+    },
+    "itemCount": {
+      "type": "number",
+      "title": "Total suspected items",
+      "template": "{{run.usageInfo.items}}"
+    }
+  }
+}
